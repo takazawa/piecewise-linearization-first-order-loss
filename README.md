@@ -1,48 +1,52 @@
-# python-poetry-template
+# Piecewise Linearization for First-Order Loss Functions
 
-This is a template repository for a python project using poetry.
+## Requirements
 
-## Setup
+- `Python>=3.8`
+- `scipy>=1.8.1`
 
-Rename <sample_lib> into your package name in 
-
-- `/sample_lib` (directory name)
-- `/Makefile`
-- `pyproject.toml`.
-
-After that, by `make build` command, `setup.py` can be created.
-Then you can install this package via pip by 
+## Install
 
 ```shell
-pip install git+https://github.com/<user_id>/<package_name>
+pip install git+https://github.com/takazawa/piecewise-linearization-first-order-loss
 ```
 
+## Usage
 
-## Commands
 
-### Create `setup.py`
+#### Parameters:
 
-```shell
-make build
+- `dist`: The probability distribution you want to approximate. This should be an instance of the probability distribution classes from `scipy.stats` (often referred to as the `Rv` type in the code).
+- `a_min`: Minimum value of the range.
+- `b_max`: Maximum value of the range.
+- `epsilon`: Accuracy of the approximation.
+- `bound_func` (optional): The bounding function. Defaults to `calc_exact_delta`.
+
+#### Returns:
+
+- An approximated discrete random variable, which is an instance of the probability distribution classes from `scipy.stats`
+- A list indicating the partitions of (a_min, b_max].
+
+#### Example:
+
+```python
+import scipy
+from partition import make_approx_dist
+
+dist = scipy.stats.norm()  # Define your probability distribution here using scipy.stats
+a_min = 0
+b_max = 10
+epsilon = 0.01
+
+new_dist, partition_list = make_approx_dist(dist, a_min, b_max, epsilon)
+
 ```
 
+By using the above sample, `new_dist` will contain the approximated discrete random variable and `partition_list` will contain the partitions of the distribution.
 
-### formatting
+---
 
-```shell
-make format 
-```
-
-### lint
-```shell
-make lint
-```
-
-### test
-
-```shell
-make test
-```
+Note: When using the `Rv` type in the code, it refers to the probability distribution classes from `scipy.stats`. Make sure to define your distributions using these classes for compatibility.
 
 
 

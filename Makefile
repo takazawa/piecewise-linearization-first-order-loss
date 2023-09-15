@@ -1,11 +1,4 @@
-PACKAGE = sample_lib-0.1.0
-
-.PHONY: build
-build:
-	poetry build
-	tar zxvf dist/$(PACKAGE).tar.gz -C ./dist
-	cp dist/$(PACKAGE)/setup.py setup.py
-	rm -rf dist
+PACKAGE = partition-0.1.0
 
 .PHONY: format
 format:

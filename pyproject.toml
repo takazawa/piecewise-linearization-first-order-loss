@@ -1,11 +1,12 @@
 [tool.poetry]
-name = "sample_lib"
+name = "partition"
 version = "0.1.0"
 description = ""
-authors = ["Author name"]
+authors = ["Yotaro Takazawa"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
+scipy = "^1.9.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
