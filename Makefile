@@ -11,4 +11,4 @@ test:
 
 .PHONY: lint
 lint:
-	poetry run flake8
+	poetry run flake8 ./src/partition && poetry run black ./src --check && poetry run isort ./src --check-only

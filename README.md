@@ -13,6 +13,7 @@ pip install git+https://github.com/takazawa/piecewise-linearization-first-order-
 
 ## Usage
 
+`partition.make_approx_dist` is designed to create an approximated discrete random variable from a given probability distribution (dist).
 
 #### Parameters:
 
